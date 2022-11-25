@@ -10,4 +10,4 @@ def main():
     page = requests.get("https://stats.see-game.com/")
     soup = BeautifulSoup(page.content, "html.parser")
     players = soup.find(class_="col-sm right").get_text(strip=True)
-    return str(players).replace("online: ", "")
+    return int(str(players).replace("online: ", ""))
